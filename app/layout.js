@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "mAInu — AI-Powered Pet Care",
+  title: "mAInu — AI-Powered Restaurant System",
   description:
-    "mAInu is your intelligent companion for modern pet care. Smart insights, health tracking, and AI-driven recommendations — all in one place.",
+    "",
 };
 
 export default function RootLayout({ children }) {
