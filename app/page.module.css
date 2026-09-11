@@ -1,0 +1,26 @@
+/* Shared: full-screen wrapper in normal page flow */
+.desktopOnly,
+.mobileOnly {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Desktop (≥768px): show web, hide mobile */
+.desktopOnly {
+  display: block;
+}
+.mobileOnly {
+  display: none;
+}
+
+/* Mobile (<768px): show mobile image, hide web */
+@media (max-width: 767px) {
+  .desktopOnly {
+    display: none;
+  }
+  .mobileOnly {
+    display: block;
+  }
+}
+
