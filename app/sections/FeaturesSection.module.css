@@ -1,0 +1,129 @@
+.features {
+  background: var(--bg-primary);
+  padding: 120px 0;
+}
+
+.header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.heading {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(28px, 3.5vw, 36px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.subheading {
+  font-family: var(--font-body), sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 540px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: all 0.2s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-terracotta);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.cardIcon {
+  width: 44px;
+  height: 44px;
+  background: var(--color-terracotta-light);
+  color: var(--color-terracotta);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIndex {
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.cardTag {
+  align-self: flex-start;
+  font-family: var(--font-body), sans-serif;
+  font-size: 11px;
+  border-radius: 0;
+}
+
+.cardTitle {
+  font-family: var(--font-heading), sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.cardDesc {
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.cardArrow {
+  font-size: 16px;
+  color: var(--color-terracotta);
+  margin-top: 8px;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+}
+
+.card:hover .cardArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .features { padding: 80px 0; }
+  .grid { grid-template-columns: 1fr; gap: 16px; }
+  .card { padding: 26px 20px; }
+  .header { margin-bottom: 48px; }
+}

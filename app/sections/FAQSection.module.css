@@ -1,0 +1,126 @@
+.section {
+  background: var(--bg-secondary);
+  padding: 120px 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 100px;
+}
+
+.heading {
+  font-family: var(--font-heading), sans-serif;
+  font-size: clamp(28px, 3.5vw, 36px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.sub {
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.emailLink {
+  color: var(--color-terracotta);
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.emailLink:hover { opacity: 0.8; }
+
+/* Accordion */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.item {
+  border-bottom: 1px solid var(--border-subtle);
+}
+.item:first-child { border-top: 1px solid var(--border-subtle); }
+
+.question {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 0;
+  text-align: left;
+  font-family: var(--font-heading), sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  transition: color 0.15s ease;
+}
+.question:hover { color: var(--color-terracotta); }
+
+.icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 0;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.iconOpen {
+  transform: rotate(45deg);
+  border-color: var(--color-terracotta);
+  color: var(--color-terracotta);
+  background: var(--color-terracotta-light);
+}
+
+.answer {
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+}
+
+.answer p {
+  padding: 0 0 24px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+  .section { padding: 80px 0; }
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .left { position: static; }
+}
+
+@media (max-width: 640px) {
+  .question { font-size: 15px; padding: 18px 0; }
+  .answer p { font-size: 14px; }
+}
