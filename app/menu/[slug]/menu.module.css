@@ -1,0 +1,844 @@
+/* ── Diner Mobile QR Menu Styles ── */
+/* Strictly rectangular sharp-edged visual language (border-radius: 0 globally) */
+
+.dinerShell {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #FAF7F0;
+  color: #141414;
+  position: relative;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-bottom: 96px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Toast */
+.waiterToast {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #141414;
+  color: #ffffff;
+  padding: 12px 18px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 2000;
+  width: calc(100% - 32px);
+  max-width: 520px;
+  border-left: 4px solid var(--color-terracotta);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerTop {
+  padding: 16px 20px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.brandRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brandLogo {
+  width: 24px;
+  height: 24px;
+  background: var(--color-terracotta);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: 'Google Sans', sans-serif;
+}
+
+.restaurantTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #141414;
+  letter-spacing: -0.01em;
+}
+
+.locationSubtitle {
+  font-size: 12px;
+  color: #666666;
+  margin: 2px 0 0;
+}
+
+.tablePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #141414;
+  color: #ffffff;
+  padding: 6px 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.tableDot {
+  width: 6px;
+  height: 6px;
+  background: #27c93f;
+}
+
+/* Search bar & Steward */
+.searchBarRow {
+  padding: 0 20px 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.searchInputWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #FAF7F0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+.searchIcon {
+  color: #888888;
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  width: 100%;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  color: #141414;
+}
+
+.clearSearchBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888888;
+  font-size: 12px;
+}
+
+.callWaiterBtn {
+  background: #FAF7F0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #141414;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.callWaiterBtn:hover {
+  background: #EFECE8;
+}
+
+/* Dietary Toggle Chips */
+.dietaryFilters {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 10px;
+}
+
+.filterChip {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #555555;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.12s ease;
+}
+
+.filterChipActive {
+  background: #141414;
+  color: #ffffff;
+  border-color: #141414;
+}
+
+.inlineVegDot {
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid #276749;
+  background: #276749;
+}
+
+.inlineNonVegDot {
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid #b5321a;
+  background: #b5321a;
+}
+
+/* Category Nav */
+.categoryNav {
+  display: flex;
+  overflow-x: auto;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0 16px;
+  scrollbar-width: none;
+}
+.categoryNav::-webkit-scrollbar {
+  display: none;
+}
+
+.catNavBtn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666666;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.catNavActive {
+  color: var(--color-terracotta);
+  font-weight: 700;
+  border-bottom-color: var(--color-terracotta);
+}
+
+/* Main Content */
+.mainContent {
+  padding: 16px 20px;
+}
+
+/* Active Order Card */
+.activeOrderCard {
+  background: #ffffff;
+  border: 2px solid #276749;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+}
+
+.orderCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.orderKdsNum {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-size: 13px;
+  color: #276749;
+}
+
+.orderTime {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #777777;
+}
+
+.orderStatusNotice {
+  font-size: 13px;
+  color: #333333;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.orderItemsSummary {
+  background: #FAF7F0;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  margin-bottom: 12px;
+}
+
+.orderSummaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 0;
+}
+
+.orderSummaryTotal {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 6px;
+  margin-top: 6px;
+}
+
+.addMoreBtn {
+  width: 100%;
+  padding: 9px;
+  background: transparent;
+  border: 1px solid #141414;
+  font-weight: 600;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+/* Section Header */
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+
+.sectionTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #141414;
+}
+
+.fssaiLabel {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  color: #777777;
+}
+
+/* Menu Grid */
+.menuGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dishCard {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  transition: border-color 0.15s ease;
+}
+
+.dishCard:hover {
+  border-color: rgba(200, 90, 50, 0.4);
+}
+
+.dishCardBody {
+  flex: 1;
+}
+
+.dishHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.dishTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #141414;
+  margin: 0;
+}
+
+.dishPriceRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.dishPrice {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-terracotta);
+}
+
+.spicyBadge {
+  font-size: 11px;
+  font-weight: 600;
+  color: #b5321a;
+  background: rgba(181, 50, 26, 0.08);
+  padding: 1px 6px;
+}
+
+.dishDesc {
+  font-size: 12.5px;
+  color: #555555;
+  line-height: 1.55;
+  margin: 0 0 6px;
+}
+
+.allergenRow {
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #888888;
+}
+
+.dishActionArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.addBtn {
+  background: var(--color-terracotta);
+  color: #ffffff;
+  border: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.addBtn:hover {
+  background: var(--color-terracotta-hover);
+}
+
+.customizeBtn {
+  background: transparent;
+  border: none;
+  color: #666666;
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Indian FSSAI Badges */
+.badgeVeg {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #276749;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dotVeg {
+  width: 7px;
+  height: 7px;
+  background: #276749;
+}
+
+.badgeNonVeg {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #b5321a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dotNonVeg {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid #b5321a;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #777777;
+}
+
+/* Floating Order Bar */
+.floatingOrderBar {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 560px;
+  background: #141414;
+  color: #ffffff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-left: 4px solid var(--color-terracotta);
+  z-index: 500;
+}
+
+.floatingItemsCount {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.floatingSubtotal {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.viewCartBtn {
+  background: var(--color-terracotta);
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Custom Modal */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.customModal {
+  background: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  padding: 24px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.customModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 18px;
+}
+
+.customModalTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #777777;
+}
+
+.customModalBody {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.optionSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #141414;
+}
+
+.portionOptions {
+  display: flex;
+  gap: 12px;
+}
+
+.radioOption {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.radioPrice {
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--color-terracotta);
+}
+
+.spiceButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.spiceBtn {
+  flex: 1;
+  padding: 8px 10px;
+  background: #FAF7F0;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.spiceBtnActive {
+  background: #141414;
+  color: #ffffff;
+  border-color: #141414;
+}
+
+.noteInput {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 10px 12px;
+  font-size: 13px;
+  font-family: inherit;
+  width: 100%;
+  outline: none;
+}
+
+.customModalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 16px;
+}
+
+.modalTotalCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalTotalLabel {
+  font-size: 11px;
+  color: #777777;
+}
+
+.modalTotalVal {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-terracotta);
+}
+
+.confirmAddBtn {
+  background: var(--color-terracotta);
+  color: #ffffff;
+  border: none;
+  padding: 10px 22px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Cart Overlay & Drawer */
+.cartOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.cartDrawer {
+  background: #ffffff;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.2);
+}
+
+.cartHeader {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartTitle {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cartSubtitle {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: #666666;
+}
+
+.cartBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartItemRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.cartItemInfo {
+  flex: 1;
+}
+
+.cartItemName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #141414;
+}
+
+.cartItemMeta {
+  font-size: 11.5px;
+  color: #666666;
+  margin: 2px 0 4px;
+}
+
+.cartItemPrice {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-terracotta);
+}
+
+.qtyControl {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.qtyBtn {
+  background: #FAF7F0;
+  border: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #141414;
+}
+
+.qtyValue {
+  width: 28px;
+  text-align: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.billCard {
+  background: #FAF7F0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.billRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: #555555;
+}
+
+.billTotalRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 700;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding-top: 8px;
+  margin-top: 4px;
+  color: var(--color-terracotta);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.kotNotice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #666666;
+  background: rgba(200, 90, 50, 0.08);
+  padding: 10px 12px;
+}
+
+.cartFooter {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sendKotBtn {
+  width: 100%;
+  background: var(--color-terracotta);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.15s ease;
+}
+
+.sendKotBtn:hover {
+  background: var(--color-terracotta-hover);
+}
