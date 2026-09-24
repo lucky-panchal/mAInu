@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typography System — Product Website Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700&family=Public+Sans:wght@400;500&family=Literata:wght@600&family=Work+Sans:wght@400;500&family=Fraunces:wght@600&family=Figtree:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&family=DM+Sans:wght@400;500&family=Newsreader:ital,wght@0,500;1,500&family=Karla:wght@400;500&family=Archivo:wght@600;700&family=Spectral:wght@500;600&family=Crimson+Pro:wght@500;600&family=Zilla+Slab:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbfaf8; --surface:#ffffff; --ink:#1a1a1a; --ink-soft:#4a4a48;
+    --line:#e4e1da; --accent:#2c5f4f; --accent-soft:#e8f0ec;
+    --mono-bg:#1a1a1a; --mono-ink:#e4e1da;
+    --sans:'Inter',system-ui,-apple-system,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#15161a; --surface:#1c1e23; --ink:#eceae4; --ink-soft:#a8a6a0;
+      --line:#33353b; --accent:#7fb8a2; --accent-soft:#20302a;
+      --mono-bg:#0d0e10; --mono-ink:#c9c7c0;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#15161a; --surface:#1c1e23; --ink:#eceae4; --ink-soft:#a8a6a0;
+    --line:#33353b; --accent:#7fb8a2; --accent-soft:#20302a;
+    --mono-bg:#0d0e10; --mono-ink:#c9c7c0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.5; padding:0 0 6rem;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 1.5rem;}
+  header{padding:4rem 0 2.5rem; border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:.85rem; color:var(--accent); font-weight:600; margin-bottom:.75rem;}
+  h1{font-family:var(--serif); font-size:clamp(2rem,5vw,2.9rem); font-weight:600; line-height:1.15; max-width:14ch;}
+  .lede{font-size:1.05rem; color:var(--ink-soft); max-width:56ch; margin-top:1rem;}
+  section{padding:3rem 0; border-bottom:1px solid var(--line);}
+  h2{font-family:var(--serif); font-size:1.5rem; font-weight:600; margin-bottom:.5rem;}
+  .section-note{color:var(--ink-soft); font-size:.95rem; max-width:60ch; margin-bottom:2rem;}
+  .scale-row{display:flex; align-items:baseline; gap:1.5rem; padding:1.1rem 0; border-bottom:1px solid var(--line);}
+  .scale-row:last-child{border-bottom:none;}
+  .scale-meta{width:190px; flex-shrink:0;}
+  .scale-name{font-weight:600; font-size:.92rem;}
+  .scale-spec{font-family:var(--mono); font-size:.78rem; color:var(--ink-soft); margin-top:.2rem;}
+  .scale-sample{font-family:var(--sans);}
+  .scale-use{width:230px; flex-shrink:0; font-size:.85rem; color:var(--ink-soft);}
+  .pair-grid{display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;}
+  @media (max-width:640px){ .pair-grid{grid-template-columns:1fr;} .scale-row{flex-wrap:wrap;} .scale-use{width:100%;} }
+  .pair-card{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1.5rem;}
+  .pair-tag{font-size:.82rem; color:var(--accent); font-weight:600; margin-bottom:.9rem;}
+  .pair-head{font-family:var(--serif); font-size:1.4rem; font-weight:600; margin-bottom:.35rem;}
+  .pair-head.sans{font-family:var(--sans); font-weight:700;}
+  .pair-body{font-size:.92rem; color:var(--ink-soft); margin-bottom:1rem;}
+  .pair-fonts{font-family:var(--mono); font-size:.76rem; color:var(--ink); border-top:1px solid var(--line); padding-top:.75rem;}
+  table{width:100%; border-collapse:collapse; font-size:.88rem;}
+  th{text-align:left; padding:.6rem .5rem; border-bottom:2px solid var(--line); color:var(--ink-soft); font-weight:600; font-size:.82rem;}
+  .table-wrap{overflow-x:auto; margin:0 -.25rem;}
+  td{padding:.7rem .5rem; border-bottom:1px solid var(--line); vertical-align:top;}
+  td.mono{font-family:var(--mono); font-size:.82rem; color:var(--accent);}
+  pre{background:var(--mono-bg); color:var(--mono-ink); padding:1.5rem; border-radius:6px; overflow-x:auto; font-family:var(--mono); font-size:.82rem; line-height:1.6;}
+  code{font-family:var(--mono);}
+  .rule-list{list-style:none;}
+  .rule-list li{padding:.5rem 0; padding-left:1.3rem; position:relative; color:var(--ink-soft); font-size:.92rem;}
+  .rule-list li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Typography system</div>
+  <h1>A type scale built for product websites</h1>
+  <p class="lede">A reference for choosing and sizing fonts across a product site — marketing pages, dashboards, and everything between. Built so a developer can implement it directly from the CSS variables below.</p>
+</header>
+
+<section>
+  <h2>The type scale</h2>
+  <p class="section-note">Six roles cover almost every product page. Each has a fixed size, weight, and job — resist adding more.</p>
+
+  <div class="scale-row">
+    <div class="scale-meta">
+      <div class="scale-name">Display</div>
+      <div class="scale-spec">56–72px · 700–800 · 1.05 line-height</div>
+    </div>
+    <div class="scale-sample" style="font-size:2.4rem; font-weight:800; line-height:1.05;">Hero headline</div>
+    <div class="scale-use">Landing page hero only. One per page.</div>
+  </div>
+
+  <div class="scale-row">
+    <div class="scale-meta">
+      <div class="scale-name">H1 / Page title</div>
+      <div class="scale-spec">36–44px · 700 · 1.15 line-height</div>
+    </div>
+    <div class="scale-sample" style="font-size:1.9rem; font-weight:700; line-height:1.15;">Section heading</div>
+    <div class="scale-use">Page titles, section headers, dashboard titles.</div>
+  </div>
+
+  <div class="scale-row">
+    <div class="scale-meta">
+      <div class="scale-name">H2 / Subhead</div>
+      <div class="scale-spec">24–28px · 600 · 1.25 line-height</div>
+    </div>
+    <div class="scale-sample" style="font-size:1.4rem; font-weight:600; line-height:1.25;">Subsection heading</div>
+    <div class="scale-use">Card titles, feature headers, modal titles.</div>
+  </div>
+
+  <div class="scale-row">
+    <div class="scale-meta">
+      <div class="scale-name">Body</div>
+      <div class="scale-spec">16–17px · 400 · 1.6 line-height</div>
+    </div>
+    <div class="scale-sample" style="font-size:.98rem; font-weight:400;">Paragraph and description text, kept under 80 characters per line for comfortable reading.</div>
+    <div class="scale-use">Paragraphs, descriptions, form helper text.</div>
+  </div>
+
+  <div class="scale-row">
+    <div class="scale-meta">
+      <div class="scale-name">UI label</div>
+      <div class="scale-spec">14px · 500–600 · 1.4 line-height</div>
+    </div>
+    <div class="scale-sample" style="font-size:.85rem; font-weight:600;">Button, nav, and form labels</div>
+    <div class="scale-use">Buttons, nav items, input labels, tabs.</div>
+  </div>
+
+  <div class="scale-row">
+    <div class="scale-meta">
+      <div class="scale-name">Caption / Meta</div>
+      <div class="scale-spec">12–13px · 400–500 · 1.4 line-height</div>
+    </div>
+    <div class="scale-sample" style="font-size:.76rem; font-weight:500; color:var(--ink-soft);">Timestamps, footnotes, table meta</div>
+    <div class="scale-use">Timestamps, table headers, footnotes, badges.</div>
+  </div>
+</section>
+
+<section>
+  <h2>Professional font styles to choose from</h2>
+  <p class="section-note">A shortlist of reliable, widely-licensed families grouped by style — each battle-tested on real product sites rather than trend-of-the-month picks.</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Family</th><th>Style</th><th>Character</th><th>Best for</th></tr>
+    <tr><td style="font-family:'Public Sans',sans-serif; font-weight:600;">Public Sans</td><td>Neutral grotesque</td><td>Plain, sturdy, built for civic/gov interfaces</td><td>Enterprise tools, forms, dense UI</td></tr>
+    <tr><td style="font-family:'Figtree',sans-serif; font-weight:600;">Figtree</td><td>Geometric sans</td><td>Rounded, friendly, balanced proportions</td><td>Consumer apps, onboarding</td></tr>
+    <tr><td style="font-family:'Sora',sans-serif; font-weight:600;">Sora</td><td>Geometric sans</td><td>Soft rounded terminals, modern startup feel</td><td>SaaS marketing, product branding</td></tr>
+    <tr><td style="font-family:'Space Grotesk',sans-serif; font-weight:600;">Space Grotesk</td><td>Grotesque w/ personality</td><td>Technical but approachable, slight quirk</td><td>Dev tools, tech blogs, agencies</td></tr>
+    <tr><td style="font-family:'DM Sans',sans-serif; font-weight:600;">DM Sans</td><td>Low-contrast geometric</td><td>Warm neutrality, tidy at small sizes</td><td>General UI, dashboards</td></tr>
+    <tr><td style="font-family:'Work Sans',sans-serif; font-weight:600;">Work Sans</td><td>Humanist sans</td><td>Optimized for small-size legibility</td><td>Body copy, editorial UI</td></tr>
+    <tr><td style="font-family:'IBM Plex Sans',sans-serif; font-weight:600;">IBM Plex Sans</td><td>Humanist sans</td><td>Technical, precise, formal</td><td>Fintech, B2B, enterprise dashboards</td></tr>
+    <tr><td style="font-family:'Archivo',sans-serif; font-weight:700;">Archivo</td><td>High-contrast grotesque</td><td>Bold, confident, large x-height</td><td>Marketing headlines, hero type</td></tr>
+    <tr><td style="font-family:'Literata',serif; font-weight:600;">Literata</td><td>Transitional serif</td><td>Book-like, scholarly, calm</td><td>Long-form reading, blogs</td></tr>
+    <tr><td style="font-family:'Newsreader',serif; font-weight:600;">Newsreader</td><td>Transitional serif</td><td>Newspaper feel, refined italics</td><td>Editorial homepages, essays</td></tr>
+    <tr><td style="font-family:'Spectral',serif; font-weight:600;">Spectral</td><td>Old-style serif</td><td>Classic, quietly elegant</td><td>Professional services, law, finance</td></tr>
+    <tr><td style="font-family:'Crimson Pro',serif; font-weight:600;">Crimson Pro</td><td>Old-style serif</td><td>Textbook elegance, generous reading</td><td>Academic, legal, long documents</td></tr>
+    <tr><td style="font-family:'Fraunces',serif; font-weight:600;">Fraunces</td><td>Soft display serif</td><td>Warm, characterful, slightly quirky</td><td>Brand-forward landing pages</td></tr>
+    <tr><td style="font-family:'Zilla Slab',serif; font-weight:700;">Zilla Slab</td><td>Slab serif</td><td>Sturdy, confident, grounded</td><td>Fintech headlines, data-heavy brands</td></tr>
+    <tr><td style="font-family:'Space Mono',monospace; font-weight:700;">Space Mono</td><td>Monospace</td><td>Retro-technical, distinct character</td><td>Developer-facing brands</td></tr>
+    <tr><td style="font-family:'IBM Plex Mono',monospace; font-weight:500;">IBM Plex Mono</td><td>Monospace</td><td>Clean digits, pairs with Plex Sans</td><td>Fintech data, terminals, logs</td></tr>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>Font pairings by product type</h2>
+  <p class="section-note">Each pairing below uses a different family combination — none repeats across categories, so picking one won't make your product look like the next one over.</p>
+
+  <div class="pair-grid">
+    <div class="pair-card">
+      <div class="pair-tag">SaaS / product dashboard</div>
+      <div class="pair-head sans" style="font-family:'Sora',sans-serif;">Sora + Public Sans</div>
+      <div class="pair-body">Sora's soft geometry gives headings a modern, confident edge; Public Sans stays plain and dense-friendly for the interface underneath.</div>
+      <div class="pair-fonts">Headings: Sora 600/700 · Body/UI: Public Sans 400/500</div>
+    </div>
+    <div class="pair-card">
+      <div class="pair-tag">Editorial / content platform</div>
+      <div class="pair-head" style="font-family:'Literata',serif;">Literata + Work Sans</div>
+      <div class="pair-body">A scholarly, book-like serif for headlines and article titles, set against a humanist sans tuned for small-size legibility in nav and UI.</div>
+      <div class="pair-fonts">Headings: Literata 600 · Body/UI: Work Sans 400/500</div>
+    </div>
+    <div class="pair-card">
+      <div class="pair-tag">E-commerce / consumer brand</div>
+      <div class="pair-head" style="font-family:'Fraunces',serif;">Fraunces + Figtree</div>
+      <div class="pair-body">Fraunces brings warmth and character to hero and category headers; Figtree's rounded geometry keeps prices, specs, and checkout friendly and legible.</div>
+      <div class="pair-fonts">Headings: Fraunces 600 · Body/UI: Figtree 400/500</div>
+    </div>
+    <div class="pair-card">
+      <div class="pair-tag">B2B / enterprise / fintech</div>
+      <div class="pair-head sans" style="font-family:'IBM Plex Sans',sans-serif;">IBM Plex Sans + Plex Mono</div>
+      <div class="pair-body">A technical, trustworthy sans built for interfaces, with its matching mono for data, code, and figures — signals precision without feeling cold.</div>
+      <div class="pair-fonts">Headings/Body: IBM Plex Sans · Data: IBM Plex Mono</div>
+    </div>
+    <div class="pair-card">
+      <div class="pair-tag">Creative agency / portfolio</div>
+      <div class="pair-head sans" style="font-family:'Space Grotesk',sans-serif;">Space Grotesk + DM Sans</div>
+      <div class="pair-body">Space Grotesk's technical quirk makes headlines feel deliberate and studio-made; DM Sans keeps supporting copy quiet and out of the way.</div>
+      <div class="pair-fonts">Headings: Space Grotesk 600/700 · Body/UI: DM Sans 400/500</div>
+    </div>
+    <div class="pair-card">
+      <div class="pair-tag">Healthcare / professional services</div>
+      <div class="pair-head" style="font-family:'Newsreader',serif; font-style:italic;">Newsreader + Karla</div>
+      <div class="pair-body">Newsreader's refined italics lend trust and calm to headlines; Karla, a clean humanist sans, keeps forms and instructions approachable.</div>
+      <div class="pair-fonts">Headings: Newsreader 500/600 italic accents · Body/UI: Karla 400/500</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Where each font style belongs</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Element</th><th>Family role</th><th>Weight</th><th>Notes</th></tr>
+    <tr><td>Logo / wordmark</td><td>Display or brand face</td><td class="mono">700–800</td><td>Fixed size, never inherits the scale</td></tr>
+    <tr><td>Hero headline</td><td>Display / serif accent</td><td class="mono">700–800</td><td>One per page, sets the tone</td></tr>
+    <tr><td>Nav links</td><td>UI sans</td><td class="mono">500</td><td>14–15px, no underline until hover</td></tr>
+    <tr><td>Body copy</td><td>Body sans/serif</td><td class="mono">400</td><td>16px min; never below on mobile</td></tr>
+    <tr><td>Buttons / CTAs</td><td>UI sans</td><td class="mono">600</td><td>Sentence case, not uppercase</td></tr>
+    <tr><td>Form labels & inputs</td><td>UI sans</td><td class="mono">400–500</td><td>Match input text size to body</td></tr>
+    <tr><td>Data tables / code</td><td>Monospace</td><td class="mono">400–500</td><td>Numbers, IDs, prices, timestamps</td></tr>
+    <tr><td>Badges / tags</td><td>UI sans</td><td class="mono">600</td><td>12–13px, tight letter-spacing</td></tr>
+  </table>
+  </div>
+</section>
+
+<section>
+  <h2>CSS for developers</h2>
+  <p class="section-note">Drop these tokens in and reference them everywhere instead of hard-coding sizes. Swap the two family values for whichever pairing above fits your product — nothing else needs to change.</p>
+  <pre><code>:root {
+  /* Swap these two lines for your chosen pairing, e.g. Sora + Public Sans */
+  --font-heading: 'Sora', system-ui, sans-serif;
+  --font-body: 'Public Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Type scale — stays the same regardless of pairing */
+  --text-display: 700 clamp(2.5rem, 5vw, 4.5rem)/1.05 var(--font-heading);
+  --text-h1:      700 clamp(1.75rem, 3vw, 2.75rem)/1.15 var(--font-heading);
+  --text-h2:      600 1.5rem/1.25 var(--font-heading);
+  --text-body:    400 1rem/1.6 var(--font-body);
+  --text-ui:      500 0.875rem/1.4 var(--font-body);
+  --text-caption: 500 0.8125rem/1.4 var(--font-body);
+}
+
+h1 { font: var(--text-h1); }
+h2 { font: var(--text-h2); }
+p, li { font: var(--text-body); max-width: 65ch; }
+button, .nav-link, label { font: var(--text-ui); }
+.caption, time, .table-meta { font: var(--text-caption); color: var(--ink-soft); }
+code, .price, .data-cell { font-family: var(--font-mono); }</code></pre>
+</section>
+
+<section style="border-bottom:none;">
+  <h2>Ground rules</h2>
+  <ul class="rule-list">
+    <li>Use one or two font families total — a third almost always looks accidental.</li>
+    <li>Never go below 16px for paragraph text; smaller reads as an accessibility miss, not a stylistic choice.</li>
+    <li>Keep body line length under 80 characters; serif body text can run slightly longer with a touch more line-height.</li>
+    <li>Reserve bold weights (700+) for headings and CTAs only — bolding body text for emphasis fatigues the eye.</li>
+    <li>Load fonts via <code>&lt;link&gt;</code> or self-hosted <code>@font-face</code>, not client-side JS injection, to avoid layout shift.</li>
+    <li>Set a system-font fallback stack on every family so text never disappears during load.</li>
+  </ul>
+</section>
+
+</div>
+</body>
+</html>
