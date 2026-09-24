@@ -1,9 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Manrope:wght@400;500;600;700&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+:root {
+  /* Brand Typography */
+  --font-heading: 'Google Sans', sans-serif;
+  --font-body: 'Manrope', sans-serif;
+
+  /* mAInu Brand Colors & Tokens per Design Spec */
+  --color-terracotta: #C85A32;
+  --color-terracotta-hover: #B34D28;
+  --color-terracotta-light: rgba(200, 90, 50, 0.12);
+
+  --bg-primary: #FAF7F0;
+  --bg-secondary: #EFECE8;
+  --bg-dark: #141414;
+  --bg-dark-2: #1E1E1E;
+
+  --text-primary: #000000;
+  --text-secondary: #5A5A5A;
+  --text-muted: #8E8E8E;
+
+  --accent: var(--color-terracotta);
+  --accent-hover: var(--color-terracotta-hover);
+  --accent-light: var(--color-terracotta-light);
+
+  --border: rgba(0, 0, 0, 0.1);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-dark: rgba(255, 255, 255, 0.1);
+
+  --white: #FFFFFF;
+
+  /* Strictly rectangular sharp-edged visual language (border-radius: 0 globally) */
+  --radius: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Headings base styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: 'GRAD' 0;
+  color: var(--text-primary);
+}
+
+/* Specific Google Sans Heading Utilities per Spec */
+.google-sans-heading {
+  font-family: 'Google Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: 'GRAD' 0;
+}
+
+.google-sans-400 {
+  font-family: 'Google Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'GRAD' 0;
+}
+
+.google-sans-500 {
+  font-family: 'Google Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'GRAD' 0;
+}
+
+.google-sans-600 {
+  font-family: 'Google Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: 'GRAD' 0;
+}
+
+.google-sans-700 {
+  font-family: 'Google Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: 'GRAD' 0;
+}
+
+.manrope-body {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+}
+
+/* Heading Scale (Desktop) per Design Spec */
+.heading-display, .display-xl, .display-lg {
+  font-family: 'Google Sans', sans-serif;
+  font-size: clamp(40px, 4.5vw, 52px);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heading-page, .display-md {
+  font-family: 'Google Sans', sans-serif;
+  font-size: clamp(28px, 3.2vw, 36px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.heading-section, .display-sm {
+  font-family: 'Google Sans', sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.heading-card {
+  font-family: 'Google Sans', sans-serif;
+  font-size: clamp(15px, 1.5vw, 17px);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+
+/* Selection */
+::selection {
+  background: var(--color-terracotta);
+  color: var(--white);
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Animate on scroll base state */
+.anim-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.anim-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tag / badge — Strictly Rectangular (border-radius: 0) */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 0;
+  font-family: var(--font-body), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: var(--white);
+}
+
+.tag-dark {
+  border-color: var(--border-dark);
+  color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.06);
+}
+
+.tag-accent {
+  background: var(--color-terracotta-light);
+  border-color: rgba(200, 90, 50, 0.25);
+  color: var(--color-terracotta);
+}
+
+/* Buttons — Strictly Rectangular per Section 3.4 */
+/* Liquid Glass Button Engine — Strictly 0 border radius (border-radius: 0) */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 0 !important;
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+}
+
+/* Liquid specular highlight shimmer */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn:hover::before {
+  left: 150%;
+}
+
+.btn:active {
+  transform: translateY(1.5px) scale(0.985);
+}
+
+/* Liquid Glass Primary — Terracotta Core with multi-depth refractive bevels */
+.btn-primary {
+  background: linear-gradient(135deg, rgba(200, 90, 50, 0.94) 0%, rgba(179, 77, 40, 0.98) 100%);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0 !important;
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 4px 18px rgba(200, 90, 50, 0.32),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.28),
+    inset 1px 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset -1px 0 1px 0 rgba(0, 0, 0, 0.25),
+    inset 0 0 10px 2px rgba(255, 255, 255, 0.12);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, rgba(215, 102, 60, 0.98) 0%, rgba(195, 85, 45, 1) 100%);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 8px 26px rgba(200, 90, 50, 0.45),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.3),
+    inset 0 0 14px 4px rgba(255, 255, 255, 0.22);
+  transform: translateY(-1.5px);
+}
+
+/* Liquid Glass Secondary — Obsidian Smoked Glass with bevels */
+.btn-secondary {
+  background: rgba(20, 20, 20, 0.07);
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 0 !important;
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.04),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.08),
+    inset 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(20, 20, 20, 0.94);
+  color: #FFFFFF !important;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1.5px);
+}
+
+/* Liquid Glass Outline — Translucent Crystal with meniscus refractions */
+.btn-outline {
+  background: rgba(250, 247, 240, 0.55);
+  color: var(--text-primary) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0 !important;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.06),
+    inset 1px 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset -1px 0 1px 0 rgba(0, 0, 0, 0.04),
+    inset 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.35);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.08),
+    inset 0 2px 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 1px 0 rgba(0, 0, 0, 0.1),
+    inset 0 0 14px rgba(255, 255, 255, 0.6);
+  transform: translateY(-1.5px);
+}
+
+/* Liquid Glass Outline White (for dark sections like CTA) */
+.btn-outline-white {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 0 !important;
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.25),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1.5px 1.5px 0 rgba(0, 0, 0, 0.35),
+    inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+.btn-outline-white:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.35),
+    inset 0 2px 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 0 14px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1.5px);
+}
+
+/* Section spacing — Generous & airy per Section 3.6 */
+.section { padding: 110px 0; }
+.section-sm { padding: 72px 0; }
+
+/* Card base — Strictly Rectangular (border-radius: 0) */
+.card {
+  background: var(--white);
+  border-radius: 0;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.card-dark {
+  background: var(--bg-dark-2);
+  border-color: var(--border-dark);
+}
+
+/* Divider */
+hr.divider {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section { padding: 72px 0; }
+  .section-sm { padding: 48px 0; }
+  .container { padding: 0 16px; }
+  .container-wide { padding: 0 20px; }
+  .hide-mobile { display: none !important; }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
 }
